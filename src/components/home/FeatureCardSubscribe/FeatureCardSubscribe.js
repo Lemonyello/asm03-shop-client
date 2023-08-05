@@ -19,8 +19,8 @@ const FeatureCardSubscribe = () => {
   return (
     <>
       <div className="d-flex justify-content-around">
-        {featureCards.map((card) => (
-          <div>
+        {featureCards.map((card, i) => (
+          <div key={i}>
             <h5>{card.title}</h5>
             <p>{card.subtitle}</p>
           </div>

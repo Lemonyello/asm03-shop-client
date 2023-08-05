@@ -1,0 +1,18 @@
+.cart-item {
+  display: flex;
+}
+
+.cart-item img {
+  width: 10%;
+}
+
+.quantity {
+  display: flex;
+  align-items: center;
+}
+
+.cart-item button {
+  border: none;
+  background-color: white;
+  
+}

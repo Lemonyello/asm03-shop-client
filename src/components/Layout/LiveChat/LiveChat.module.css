@@ -1,0 +1,54 @@
+.chat-window {
+  border-radius: 16px;
+  box-shadow: 0px 0px 15px 5px #cecece;
+  width: 50%;
+}
+
+.chat-header {
+  display: flex;
+  border-bottom: 1px solid #ebebeb;
+}
+
+.chat-header h3 {
+  background-color: #e4e7ea;
+  color: #909399;
+}
+
+.conversation {
+  display: flex;
+  flex-direction: column;
+}
+
+.customer-chat {
+  background-color: #48b0f7;
+  display: inline-block;
+  align-self: flex-end;
+}
+
+.admin-chat {
+  display: flex;
+}
+
+.admin-chat p {
+  background-color: #f5f6f7;
+  color: #b9bdc3;
+}
+
+.chat-field {
+  display: flex;
+  border-top: 1px solid #ebebeb;
+  background-color: #f9fafb;
+  border-end-start-radius: 16px;
+  border-end-end-radius: 16px;
+}
+
+.chat-field img,
+.admin-chat img {
+  width: 50px;
+  height: 50px;
+  border-radius: 100px;
+}
+
+.icon {
+  color: #cac7c7;
+}

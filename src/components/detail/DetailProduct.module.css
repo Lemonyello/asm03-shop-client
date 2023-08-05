@@ -1,0 +1,20 @@
+.detail-product {
+  width: 100%;
+}
+
+.desc-img {
+  width: 8%;
+}
+
+.desc-img img {
+  width: 100%;
+}
+
+.detail-product > img {
+  width: 30%;
+  object-fit: cover;
+}
+
+.product-desc {
+  width: 20%;
+}

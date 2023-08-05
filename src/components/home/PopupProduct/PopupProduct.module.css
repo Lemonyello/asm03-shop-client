@@ -1,3 +1,7 @@
 .popup img {
   width: 45%;
 }
+
+.popup p {
+  white-space: pre-line;
+}

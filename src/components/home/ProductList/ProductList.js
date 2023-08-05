@@ -18,8 +18,8 @@ const ProductList = () => {
       <h3>Made the hard way</h3>
       <h4>top trending products</h4>
       <div className="d-flex flex-wrap gap-2">
-        {productList.slice(0, 8).map((product) => (
-          <div className={styles["product-item"]}>
+        {productList.slice(0, 8).map((product, i) => (
+          <div key={i} className={styles["product-item"]}>
             <img src={product.img1} alt={product.name} />
             <h5>{product.name}</h5>
             <p>{product.price}</p>

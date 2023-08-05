@@ -1,12 +1,14 @@
 import { Outlet } from "react-router-dom";
-import Navbar from "./Navbar";
-import Footer from "./Footer";
+import Navbar from "./NavBar/Navbar";
+import Footer from "./Footer/Footer";
+import LiveChat from "./LiveChat/LiveChat";
 
 const Layout = () => {
   return (
     <>
       <Navbar />
       <Outlet />
+      <LiveChat />
       <Footer />
     </>
   );

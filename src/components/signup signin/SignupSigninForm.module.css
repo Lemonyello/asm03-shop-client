@@ -1,0 +1,34 @@
+.bg {
+  width: 100%;
+  height: 800px;
+  background-image: url('../../../public/resource/banner1.jpg');background-repeat: repeat-y;background-position: center -96px;   
+}
+
+.card {
+  width: 40%;
+  margin:  0 auto;
+  background-color: white;
+}
+
+.form {
+  width: 70%;
+  margin:  0 auto;
+  border: 1px solid gray ;
+}
+
+.field {
+  border-bottom: 1px solid gray ;
+}
+
+.field label {
+  width: 30%;
+  margin-right: 16px;
+}
+
+.field input {
+  border: none;
+}
+
+.field input:focus {
+  outline: none;
+}

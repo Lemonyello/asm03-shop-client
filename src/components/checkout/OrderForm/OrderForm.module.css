@@ -1,0 +1,10 @@
+.form input {
+  display: block;
+  margin-bottom: 18px;
+}
+
+.form label {
+  display: block;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
