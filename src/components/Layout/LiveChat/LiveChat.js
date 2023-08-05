@@ -36,6 +36,7 @@ const Conversation = () => {
 const ChatField = () => {
   let a = 0;
   a += 2;
+  a += 1;
   return (
     <div className={styles["chat-field"]}>
       <img alt="business man" src="./resource/business profile pic.PNG" />
