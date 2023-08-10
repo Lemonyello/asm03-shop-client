@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import styles from "./ProductList.module.css";
 
-const ProductList = () => {
+const ProductList = ({ listSize }) => {
   const [productList, setProductList] = useState([]);
   useEffect(() => {
     (async () => {
@@ -13,19 +13,23 @@ const ProductList = () => {
       setProductList(data);
     })();
   }, []);
+
   return (
-    <div className={styles["product-list"]}>
-      <h3>Made the hard way</h3>
-      <h4>top trending products</h4>
-      <div className="d-flex flex-wrap gap-2">
-        {productList.slice(0, 8).map((product, i) => (
-          <div key={i} className={styles["product-item"]}>
-            <img src={product.img1} alt={product.name} />
-            <h5>{product.name}</h5>
-            <p>{product.price}</p>
-          </div>
-        ))}
-      </div>
+    <div className="d-flex flex-wrap justify-content-between">
+      {productList.slice(0, 8).map((product, i) => (
+        <div
+          key={i}
+          className={`${styles["product-item"]} ${
+            listSize === 3 ? styles["product-item3"] : ""
+          }`}
+        >
+          <img src={product.img1} alt={product.name} />
+          <h5>{product.name}</h5>
+          <p>
+            {Number(product.price).toLocaleString().split(",").join(".")} VND
+          </p>
+        </div>
+      ))}
     </div>
   );
 };

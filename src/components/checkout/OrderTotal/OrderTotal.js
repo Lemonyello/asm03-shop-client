@@ -12,17 +12,26 @@ const dummy_Prods = [
 
 const OrderTotal = ({ items }) => {
   return (
-    <div className={styles.total}>
+    <div className={styles["total-order"]}>
       <h3>Your order</h3>
       {dummy_Prods.map((item, i) => (
-        <div className="d-flex justify-content-between">
+        <div className={styles.item}>
           <h5>{item.name}</h5>
-          <p>{item.price}</p>
+          <p>
+            {Number(item.price).toLocaleString().split(",").join(".")} VND x 1
+          </p>
         </div>
       ))}
-      <div className="d-flex justify-content-between">
+      <div className={styles.total}>
         <h4>Total</h4>
-        <p>{dummy_Prods.reduce((sum, item) => sum + Number(item.price), 0)}</p>
+        <p>
+          {dummy_Prods
+            .reduce((sum, item) => sum + Number(item.price), 0)
+            .toLocaleString()
+            .split(",")
+            .join(".")}
+          VND
+        </p>
       </div>
     </div>
   );

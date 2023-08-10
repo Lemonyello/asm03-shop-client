@@ -1,7 +1,102 @@
-.popup img {
-  width: 45%;
+.backdrop {
+  background-color: rgba(0, 0, 0, 0.364);
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  display: flex;
+  align-items: center;
 }
 
-.popup p {
+.popup-window {
+  background-color: white;
+  width: 85%;
+  margin: 0 auto;
+  overflow-y: scroll;
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  padding: 32px;
+}
+
+.popup-window > button {
+  align-self: flex-end;
+  border: none;
+  margin-bottom: 24px;
+  background-color: white;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.popup-window img {
+  width: 45%;
+  object-fit: cover;
+  margin-right: 54px;
+}
+
+.popup-window p {
   white-space: pre-line;
+}
+
+.popup-window div button {
+  border: none;
+  background-color: #494949;
+  color: white;
+  padding: 8px 32px;
+  font-style: italic;
+}
+
+.window-disappear {
+  animation: slideBottomtoTop 0.4s linear;
+  transform: translateY(-120%);
+  opacity: 0%;
+}
+
+.window-appear {
+  animation: slideToptoBottom 0.7s linear;
+  transform: translateY(0%);
+  opacity: 100%;
+}
+
+.backdrop-appear {
+  animation: fadeIn 0.7s linear;
+  opacity: 100%;
+}
+
+.backdrop-disappear {
+  animation: fadeOut 0.7s linear;
+  opacity: 0%;
+}
+
+@keyframes slideToptoBottom {
+  0% {
+    transform: translateY(-120%);
+    opacity: 0%;
+  }
+
+  100% {
+    transform: translateY(0%);
+    opacity: 100%;
+  }
+}
+
+@keyframes slideBottomtoTop {
+  0% {
+    transform: translateY(0%);
+    opacity: 100%;
+  }
+
+  100% {
+    transform: translateY(-120%);
+    opacity: 0%;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0%;
+  }
+
+  100% {
+    opacity: 100%;
+  }
 }

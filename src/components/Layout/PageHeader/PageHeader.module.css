@@ -1,0 +1,33 @@
+.header {
+  background-color: #ebeced;
+  display: flex;
+  justify-content: space-between;
+  text-transform: uppercase;
+  padding: 64px 48px;
+  margin-bottom: 48px;
+  align-items: center;
+}
+
+.header h1 {
+  font-weight: bold;
+  font-size: 28px;
+}
+
+.small-header,
+.path {
+  color: #6c6c6d;
+  font-weight: bold;
+}
+
+.small-header {
+  font-size: 14px;
+}
+
+.path {
+  font-size: 14px;
+  color: black;
+}
+
+.path span {
+  color: #6c6c6d;
+}

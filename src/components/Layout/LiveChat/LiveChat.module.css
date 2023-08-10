@@ -1,28 +1,64 @@
 .chat-window {
   border-radius: 16px;
-  box-shadow: 0px 0px 15px 5px #cecece;
-  width: 50%;
+  box-shadow: 0px 0px 15px 5px #8b8b8b;
+  background-color: white;
+  position: fixed;
+  right: 2%;
+  bottom: 20%;
+  width: 80%;
 }
 
 .chat-header {
   display: flex;
   border-bottom: 1px solid #ebebeb;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 32px;
+  padding-right: 18px;
 }
 
-.chat-header h3 {
+.chat-header h2 {
+  font-weight: bold;
+  font-size: 18px;
+  margin: 0;
+  font-style: normal;
+}
+
+.chat-header button {
   background-color: #e4e7ea;
   color: #909399;
+  border: none;
+  font-style: italic;
+  padding: 6px 12px;
+  font-size: 13px;
+}
+
+.chat-header button:hover {
+  background-color: #b0b0b0;
+  color: rgb(220, 219, 219);
 }
 
 .conversation {
   display: flex;
   flex-direction: column;
+  width: 85%;
+  padding: 8px;
+  padding-bottom: 96px;
+  padding-right: 48px;
+}
+
+.customer-chat,
+.admin-chat p {
+  padding: 8px;
+  font-size: 14px;
+  border-radius: 5px;
 }
 
 .customer-chat {
   background-color: #48b0f7;
   display: inline-block;
   align-self: flex-end;
+  color: white;
 }
 
 .admin-chat {
@@ -40,15 +76,44 @@
   background-color: #f9fafb;
   border-end-start-radius: 16px;
   border-end-end-radius: 16px;
+  align-items: center;
+  padding: 12px;
 }
 
 .chat-field img,
 .admin-chat img {
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
+  margin: 8px;
+  margin-top: 0;
   border-radius: 100px;
+}
+
+.chat-field input {
+  border: none;
+}
+
+.chat-field input:focus {
+  outline: none;
+}
+
+.chat-field div {
+  display: flex;
+  gap: 12px;
+  margin-left: auto;
+  margin-right: 120px;
 }
 
 .icon {
   color: #cac7c7;
+}
+
+.chat-button {
+  padding: 8px;
+  background-color: white;
+  border-radius: 300px;
+  border: none;
+  position: fixed;
+  right: 0;
+  bottom: 5%;
 }

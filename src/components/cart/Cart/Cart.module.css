@@ -1,3 +1,42 @@
+.cart {
+  width: 67%;
+}
+
 .table-header {
   display: flex;
+  justify-content: space-between;
+  padding: 16px 24px;
+  background-color: #f3f2f2;
+}
+
+.table-header h5 {
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 14px;
+  margin: 0;
+  text-align: center;
+}
+
+.image {
+  width: 10%;
+}
+
+.product {
+  width: 20%;
+}
+
+.price {
+  width: 10%;
+}
+
+.quantity {
+  width: 9%;
+}
+
+.total {
+  width: 8%;
+}
+
+.remove {
+  width: 6%;
 }

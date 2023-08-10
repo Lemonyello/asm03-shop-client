@@ -1,5 +1,6 @@
 .banner {
   position: relative;
+  margin-bottom: 48px;
 }
 
 .banner img {
@@ -8,5 +9,26 @@
 
 .banner-text {
   position: absolute;
-  top: 50%;
+  top: 25%;
+  width: 30%;
+  margin-left: 64px;
+}
+
+.banner-text p {
+  text-transform: uppercase;
+  font-weight: 400;
+  color: gray;
+}
+
+.banner-text h2 {
+  text-transform: uppercase;
+  font-weight: bold;
+  margin-bottom: 32px;
+}
+
+.banner-text a {
+  text-decoration: none;
+  color: white;
+  background-color: #494949;
+  padding: 12px 24px;
 }

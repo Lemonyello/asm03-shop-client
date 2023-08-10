@@ -1,20 +1,21 @@
-import styles from './CartItem.module.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTrashCan, faCaretLeft, faCaretRight } from '@fortawesome/free-solid-svg-icons';
+import styles from "./CartItem.module.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTrashCan } from "@fortawesome/free-solid-svg-icons";
+import QuantityButton from "../../UI/QuantityButton";
 
-const CartItem = ({item}) => {
-  return <div className={styles['cart-item']}>
-    <img alt={item.name} src={item.img} />
-    <h4>{item.name}</h4>
-    <p>{item.price} VND</p>
-    <div className={`${styles.quantity} d-flex`}>
-      <button><FontAwesomeIcon icon={faCaretLeft} /></button>
-      <p>1</p>
-      <button><FontAwesomeIcon icon={faCaretRight} /></button>
+const CartItem = ({ item }) => {
+  return (
+    <div className={styles["cart-item"]}>
+      <img alt={item.name} src={item.img} />
+      <h4>{item.name}</h4>
+      <p>{Number(item.price).toLocaleString().split(",").join(".")} VND</p>
+      <QuantityButton />
+      <p>{Number(item.price).toLocaleString().split(",").join(".")} VND</p>
+      <button>
+        <FontAwesomeIcon icon={faTrashCan} className={styles.icon} />
+      </button>
     </div>
-    <p>{item.price} VND</p>
-    <button><FontAwesomeIcon icon={faTrashCan} /></button>
-  </div>
- };
+  );
+};
 
 export default CartItem;

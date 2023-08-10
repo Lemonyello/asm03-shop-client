@@ -1,8 +1,9 @@
-import Banner from "../components/home/Banner/Banner";
-import Categories from "../components/home/Categories/Categories";
-import FeatureCardSubscribe from "../components/home/FeatureCardSubscribe/FeatureCardSubscribe";
-import PopupProduct from "../components/home/PopupProduct/PopupProduct";
-import ProductList from "../components/home/ProductList/ProductList";
+import styles from "./Home.module.css";
+import Banner from "../../components/home/Banner/Banner";
+import Categories from "../../components/home/Categories/Categories";
+import FeatureCardSubscribe from "../../components/home/FeatureCardSubscribe/FeatureCardSubscribe";
+import PopupProduct from "../../components/home/PopupProduct/PopupProduct";
+import ProductList from "../../components/home/ProductList/ProductList";
 
 const dummy_Prod = {
   img: "https://firebasestorage.googleapis.com/v0/b/funix-way.appspot.com/o/xSeries%2FCCDN%2FReactJS%2FAssignment_Images%2FASM03_Resources%2Fiphone_13_4.jpeg?alt=media&token=dc72dde3-cfa4-4710-9493-ac2aa0ecf249",
@@ -14,15 +15,17 @@ const dummy_Prod = {
 
 const HomePage = () => {
   return (
-    <>
+    <div className={styles.home}>
       <Banner />
       <Categories />
+      <h3>Made the hard way</h3>
+      <h4>top trending products</h4>
       <ProductList />
       <FeatureCardSubscribe />
-      <PopupProduct
+      {/* <PopupProduct
         product={dummy_Prod}
-      />
-    </>
+      /> */}
+    </div>
   );
 };
 

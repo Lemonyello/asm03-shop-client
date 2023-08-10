@@ -1,0 +1,43 @@
+.feature-cards {
+  display: flex;
+  justify-content: space-around;
+  background-color: #f5f6f7;
+  padding: 32px;
+  margin-bottom: 32px;
+}
+
+.feature-cards h5 {
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.feature-cards p,
+.subscribe p {
+  font-size: 14px;
+  color: #6c6c6d;
+}
+
+.subscribe {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 32px;
+}
+
+.subscribe h4 {
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.subscribe button {
+  border: none;
+  background-color: #494949;
+  padding: 12px 24px;
+  color: white;
+}
+
+.subscribe input {
+  display: inline-block;
+  height: 47px;
+  width: 400px;
+}

@@ -17,7 +17,7 @@ const categories = [
 
 const Categories = () => {
   return (
-    <div>
+    <div className={styles.categories}>
       <h2>Categories</h2>
       <div>
         <h3>Apple</h3>

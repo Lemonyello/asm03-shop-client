@@ -1,1 +1,57 @@
+.cart-total {
+  width: 30%;
+  padding: 48px;
+  background-color: #f3f2f2;
+}
 
+.cart-total h3 {
+  text-transform: uppercase;
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 24px;
+}
+
+.cart-total h5 {
+  font-size: 14px;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.subtotal {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #d0d0d0;
+  padding-bottom: 8px;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.subtotal p {
+  font-size: 14px;
+  color: gray;
+  margin: 0;
+}
+
+.total {
+  font-size: 18px;
+  margin: 0;
+}
+
+.coupon input,
+.coupon button {
+  display: block;
+  width: 100%;
+}
+
+.coupon input {
+  height: 40px;
+  border: 1px solid #bdbdbd;
+}
+
+.coupon button {
+  color: white;
+  border: none;
+  background-color: #333;
+  padding: 8px 0;
+}

@@ -6,8 +6,8 @@ import styles from "./Shop.module.css";
 const ShopPage = () => {
   return (
     <>
-      <PageHeader smallHeader="shop" bigHeader="shop" />
-      <div className="d-flex">
+      <PageHeader header="shop" />
+      <div className="d-flex justify-content-between">
         <Categories />
         <ShowProducts />
       </div>

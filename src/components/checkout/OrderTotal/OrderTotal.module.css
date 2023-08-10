@@ -1,0 +1,46 @@
+.total-order {
+  width: 30%;
+  padding: 48px 32px;
+  background-color: #f4f4f4;
+  align-self: flex-start;
+}
+
+.total-order h3 {
+  text-transform: uppercase;
+  margin-bottom: 32px;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.item {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #c1c0c0;
+  margin-bottom: 16px;
+}
+
+.item h5 {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.item p {
+  font-size: 14px;
+  color: #868585;
+}
+
+.total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.total h4 {
+  text-transform: uppercase;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.total p {
+  font-size: 20px;
+}

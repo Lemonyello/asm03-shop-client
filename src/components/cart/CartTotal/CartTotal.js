@@ -2,23 +2,33 @@ import styles from "./CartTotal.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGift } from "@fortawesome/free-solid-svg-icons";
 
-const CartTotal = ({ total }) => {
+const CouponSelect = () => {
   return (
-    <div className={styles.total}>
-      <h3>Cart total</h3>
-      <div className="d-flex justify-content-between">
-        <h5>Subtotal</h5>
-        <p>{total} VND</p>
-      </div>
-      <div className="d-flex justify-content-between">
-        <h5>Total</h5>
-        <p>{total} VND</p>
-      </div>
+    <div className={styles.coupon}>
       <input type="text" placeholder="Enter your coupon" />
       <button>
         <FontAwesomeIcon icon={faGift} />
-        Apply coupon
+        &nbsp;Apply coupon
       </button>
+    </div>
+  );
+};
+
+const CartTotal = ({ total }) => {
+  return (
+    <div className={styles["cart-total"]}>
+      <h3>Cart total</h3>
+      <div className={styles.subtotal}>
+        <h5>Subtotal</h5>
+        <p>{Number(total).toLocaleString().split(",").join(".")} VND</p>
+      </div>
+      <div className="d-flex justify-content-between align-items-center mb-4">
+        <h5>Total</h5>
+        <p className={styles.total}>
+          {Number(total).toLocaleString().split(",").join(".")} VND
+        </p>
+      </div>
+      <CouponSelect />
     </div>
   );
 };

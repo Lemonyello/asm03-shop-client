@@ -1,0 +1,28 @@
+.header {
+  text-transform: uppercase;
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 32px;
+}
+
+.navigate-buttons {
+  display: flex;
+  justify-content: space-between;
+  background-color: #f3f2f2;
+  padding: 18px 24px;
+  width: 67%;
+}
+
+.navigate-buttons button {
+  background-color: #f3f2f2;
+  font-style: italic;
+}
+
+.navigate-buttons button:not(.checkout) {
+  border: none;
+}
+
+.checkout {
+  border: 1px solid black;
+  padding: 8px 12px;
+}

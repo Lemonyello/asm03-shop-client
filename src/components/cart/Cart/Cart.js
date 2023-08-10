@@ -13,14 +13,14 @@ const dummy_Prods = [
 
 const Cart = () => {
   return (
-    <div>
+    <div className={styles.cart}>
       <div className={styles["table-header"]}>
-        <h5>image</h5>
-        <h5>product</h5>
-        <h5>price</h5>
-        <h5>quantity</h5>
-        <h5>total</h5>
-        <h5>remove</h5>
+        <h5 className={styles.image}>image</h5>
+        <h5 className={styles.product}>product</h5>
+        <h5 className={styles.price}>price</h5>
+        <h5 className={styles.quantity}>quantity</h5>
+        <h5 className={styles.total}>total</h5>
+        <h5 className={styles.remove}>remove</h5>
       </div>
       {dummy_Prods.map((item, i) => (
         <CartItem key={i} item={item} />

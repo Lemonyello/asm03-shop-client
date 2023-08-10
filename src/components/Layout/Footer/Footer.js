@@ -1,3 +1,5 @@
+import styles from "./Footer.module.css";
+
 const footerLinks = [
   {
     heading: "Customer services",
@@ -20,7 +22,7 @@ const footerLinks = [
 
 const Footer = () => {
   return (
-    <div className="d-flex justify-content-between">
+    <div className={styles.footer}>
       {footerLinks.map((col, i) => (
         <div key={i}>
           <h4>{col.heading}</h4>
