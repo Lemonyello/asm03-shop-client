@@ -1,14 +1,18 @@
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import styles from "./Banner.module.css";
 
 const Banner = () => {
+  const navigate = useNavigate();
+
   return (
     <div className={styles.banner}>
       <img alt="banner" src="./resource/banner1.jpg" />
       <div className={styles["banner-text"]}>
         <p>New inspiration 2020</p>
         <h2>20% off on new season</h2>
-        <Link to="/shop">Browse collections</Link>
+        <button onClick={navigate.bind(null, "/shop")}>
+          Browse collections
+        </button>
       </div>
     </div>
   );

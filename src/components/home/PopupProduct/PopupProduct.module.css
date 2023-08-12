@@ -1,13 +1,15 @@
 .backdrop {
-  background-color: rgba(0, 0, 0, 0.364);
+  background-color: rgba(0, 0, 0, 0.672);
   height: 100vh;
+  width: 100%;
   position: fixed;
   top: 0;
-  display: flex;
-  align-items: center;
 }
 
 .popup-window {
+  position: fixed;
+  top: 10%;
+  left: 8%;
   background-color: white;
   width: 85%;
   margin: 0 auto;
@@ -45,25 +47,25 @@
   font-style: italic;
 }
 
+.window-appear {
+  animation: slideToptoBottom 0.4s linear;
+  transform: translateY(0%);
+  opacity: 100%;
+}
+
 .window-disappear {
   animation: slideBottomtoTop 0.4s linear;
   transform: translateY(-120%);
   opacity: 0%;
 }
 
-.window-appear {
-  animation: slideToptoBottom 0.7s linear;
-  transform: translateY(0%);
-  opacity: 100%;
-}
-
 .backdrop-appear {
-  animation: fadeIn 0.7s linear;
+  animation: fadeIn 0.4s linear;
   opacity: 100%;
 }
 
 .backdrop-disappear {
-  animation: fadeOut 0.7s linear;
+  animation: fadeOut 0.4s linear;
   opacity: 0%;
 }
 
@@ -98,5 +100,15 @@
 
   100% {
     opacity: 100%;
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 100%;
+  }
+
+  100% {
+    opacity: 0%;
   }
 }

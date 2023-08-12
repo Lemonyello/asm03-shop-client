@@ -1,6 +1,6 @@
 import "./App.css";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import HomePage from "./pages/home/Home";
+import HomePage, { loader as productLoader } from "./pages/home/Home";
 import ShopPage from "./pages/shop/Shop";
 import DetailPage from "./pages/detail/Detail";
 import CartPage from "./pages/cart/Cart";
@@ -14,6 +14,8 @@ function App() {
     {
       path: "/",
       element: <Layout />,
+      loader: productLoader,
+      id: "home",
       children: [
         {
           index: true,

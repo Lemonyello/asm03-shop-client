@@ -26,9 +26,10 @@
   margin-bottom: 32px;
 }
 
-.banner-text a {
-  text-decoration: none;
+.banner-text button {
   color: white;
   background-color: #494949;
   padding: 12px 24px;
+  font-style: italic;
+  border: none;
 }

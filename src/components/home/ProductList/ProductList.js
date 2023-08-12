@@ -1,34 +1,35 @@
-import { useEffect, useState } from "react";
 import styles from "./ProductList.module.css";
+import { useDispatch } from "react-redux";
+import { popupActions } from "../../../store/popup";
+import { useNavigate } from "react-router-dom";
 
-const ProductList = ({ listSize }) => {
-  const [productList, setProductList] = useState([]);
-  useEffect(() => {
-    (async () => {
-      const res = await fetch(
-        "https://firebasestorage.googleapis.com/v0/b/funix-subtitle.appspot.com/o/Boutique_products.json?alt=media&token=dc67a5ea-e3e0-479e-9eaf-5e01bcd09c74"
-      );
-      const data = await res.json();
-      console.log(data);
-      setProductList(data);
-    })();
-  }, []);
+const ProductItem = ({ product, listType }) => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const classesItem = `${styles["product-item"]} ${
+    listType === "shop" ? styles["product-item3"] : ""
+  }`;
+
+  const onClickItemHandler = () => {
+    if (listType === "shop") navigate(`/detail/${product._id.$oid}`);
+    else dispatch(popupActions.showPopup(product));
+  };
 
   return (
+    <div className={classesItem} onClick={onClickItemHandler}>
+      <img src={product.img1} alt={product.name} />
+      <h5>{product.name}</h5>
+      <p>{Number(product.price).toLocaleString().split(",").join(".")} VND</p>
+    </div>
+  );
+};
+
+const ProductList = ({ listType, products }) => {
+  return (
     <div className="d-flex flex-wrap justify-content-between">
-      {productList.slice(0, 8).map((product, i) => (
-        <div
-          key={i}
-          className={`${styles["product-item"]} ${
-            listSize === 3 ? styles["product-item3"] : ""
-          }`}
-        >
-          <img src={product.img1} alt={product.name} />
-          <h5>{product.name}</h5>
-          <p>
-            {Number(product.price).toLocaleString().split(",").join(".")} VND
-          </p>
-        </div>
+      {products.map((product, i) => (
+        <ProductItem product={product} key={i} listType={listType} />
       ))}
     </div>
   );

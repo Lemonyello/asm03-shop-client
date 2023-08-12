@@ -4,8 +4,6 @@ import styles from "./Categories.module.css";
 const Categories = () => {
   const navigate = useNavigate();
 
-  const onClickCategoryHandler = (path) => navigate(path);
-
   return (
     <div className={styles.categories}>
       <h3>Carefully created collections</h3>
@@ -14,29 +12,29 @@ const Categories = () => {
         <img
           alt="iPhone"
           src="./resource/product_1.png"
-          onClick={onClickCategoryHandler.bind(null, "/shop")}
+          onClick={navigate.bind(null, "/shop")}
         />
         <img
           alt="Mac"
           src="./resource/product_2.png"
-          onClick={onClickCategoryHandler.bind(null, "/shop")}
+          onClick={navigate.bind(null, "/shop")}
         />
       </div>
       <div>
         <img
           alt="iPad"
           src="./resource/product_3.png"
-          onClick={onClickCategoryHandler.bind(null, "/shop")}
+          onClick={navigate.bind(null, "/shop")}
         />
         <img
           alt="Watch"
           src="./resource/product_4.png"
-          onClick={onClickCategoryHandler.bind(null, "/shop")}
+          onClick={navigate.bind(null, "/shop")}
         />
         <img
           alt="AirPods"
           src="./resource/product_5.png"
-          onClick={onClickCategoryHandler.bind(null, "/shop")}
+          onClick={navigate.bind(null, "/shop")}
         />
       </div>
     </div>
