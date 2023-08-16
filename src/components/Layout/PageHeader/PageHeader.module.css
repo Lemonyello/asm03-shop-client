@@ -1,5 +1,5 @@
 .header {
-  background-color: #ebeced;
+  background-color: #f3f3f3;
   display: flex;
   justify-content: space-between;
   text-transform: uppercase;
@@ -28,6 +28,6 @@
   color: black;
 }
 
-.path span {
+.path span span {
   color: #6c6c6d;
 }

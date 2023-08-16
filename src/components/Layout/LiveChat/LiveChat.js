@@ -5,6 +5,8 @@ import {
   faFaceSmile,
   faPaperPlane,
 } from "@fortawesome/free-solid-svg-icons";
+import { useDispatch, useSelector } from "react-redux";
+import { chatActions } from "../../../store/chat";
 
 const ChatHeader = () => {
   return (
@@ -58,10 +60,16 @@ const ChatWindow = () => {
 };
 
 const LiveChat = () => {
+  const { showChat } = useSelector((state) => state.chat);
+  const dispatch = useDispatch();
+
   return (
     <>
-      {/* <ChatWindow /> */}
-      <button className={styles["chat-button"]}>
+      {showChat && <ChatWindow />}
+      <button
+        className={styles["chat-button"]}
+        onClick={dispatch.bind(null, chatActions.toggleChat())}
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           height="1em"

@@ -5,6 +5,8 @@ const initialShopState = {
   searchWord: "",
   sort: "",
   currentPage: 1,
+  animShowUp: true,
+  animFadeOut: false,
 };
 
 const shopSlice = createSlice({
@@ -14,6 +16,8 @@ const shopSlice = createSlice({
     changeCategory(state, actions) {
       state.currentCategory = actions.payload;
       state.searchWord = "";
+      state.animShowUp = true;
+      state.animFadeOut = true;
     },
     changeSearchWord(state, actions) {
       state.searchWord = actions.payload;
@@ -27,6 +31,13 @@ const shopSlice = createSlice({
     },
     reset(state) {
       state = initialShopState;
+    },
+    turnOffAnimShowUp(state) {
+      state.animShowUp = false;
+      state.animFadeOut = false;
+    },
+    turnOnAnimFadeOut(state) {
+      state.animFadeOut = true;
     },
   },
 });

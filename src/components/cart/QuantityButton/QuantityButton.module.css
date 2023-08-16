@@ -1,0 +1,15 @@
+.quantity-buttons {
+  display: flex;
+  align-items: center;
+}
+
+.quantity-buttons button {
+  background-color: white;
+}
+
+.quantity-buttons input {
+  border: none;
+  width: 30px;
+  background-color: white;
+  text-align: center;
+}

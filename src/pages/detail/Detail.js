@@ -1,5 +1,5 @@
 import { useParams, useRouteLoaderData } from "react-router-dom";
-import DetailProduct from "../../components/detail/DetailProduct";
+import DetailProduct from "../../components/detail/DetailProduct/DetailProduct";
 import ProductList from "../../components/home/ProductList/ProductList";
 import styles from "./Detail.module.css";
 
@@ -8,7 +8,7 @@ const DetailPage = () => {
   const products = useRouteLoaderData("home");
   const product = products.find((prod) => prod._id.$oid === productId);
   const relatedProducts = products.filter(
-    (prod) => prod.category === product.category
+    (prod) => prod.category === product.category && prod._id.$oid !== productId
   );
 
   return (
@@ -18,7 +18,7 @@ const DetailPage = () => {
       <h4>Product description</h4>
       <p>{product.long_desc.split("\n\n").join("\n")}</p>
       <h2>Related products</h2>
-      <ProductList products={relatedProducts} />
+      <ProductList listType="shop" products={relatedProducts} />
     </div>
   );
 };

@@ -6,12 +6,26 @@ import PopupProduct from "../../components/home/PopupProduct/PopupProduct";
 import ProductList from "../../components/home/ProductList/ProductList";
 import { useSelector } from "react-redux";
 import { json, useRouteLoaderData } from "react-router-dom";
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { authActions } from "../../store/auth";
+import * as storage from "../../store/local-storage";
+import { createPortal } from "react-dom";
 
 const HomePage = () => {
   const popupState = useSelector((state) => state.popup);
+  const { isLoggedIn } = useSelector((state) => state.auth);
+  const dispatch = useDispatch();
 
   const data = useRouteLoaderData("home");
-  console.log(data);
+
+  useEffect(() => {
+    const emptyObj = {};
+
+    const user = storage.getFromStorage(storage.CURRENT_USER, emptyObj);
+
+    user !== emptyObj && !isLoggedIn && dispatch(authActions.login());
+  }, [dispatch, isLoggedIn]);
 
   return (
     <div className={styles.home}>
@@ -22,11 +36,12 @@ const HomePage = () => {
       <ProductList products={data.slice(0, 8)} />
       <FeatureCardSubscribe />
 
-      {popupState.showPopup ? (
-        <PopupProduct product={popupState.productShowing} />
-      ) : (
-        ""
-      )}
+      {popupState.showPopup
+        ? createPortal(
+            <PopupProduct product={popupState.productShowing} />,
+            document.getElementById("full-screen")
+          )
+        : ""}
     </div>
   );
 };

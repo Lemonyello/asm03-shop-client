@@ -20,12 +20,12 @@ const CartTotal = ({ total }) => {
       <h3>Cart total</h3>
       <div className={styles.subtotal}>
         <h5>Subtotal</h5>
-        <p>{Number(total).toLocaleString().split(",").join(".")} VND</p>
+        <p>{total.toLocaleString().split(",").join(".")} VND</p>
       </div>
       <div className="d-flex justify-content-between align-items-center mb-4">
         <h5>Total</h5>
         <p className={styles.total}>
-          {Number(total).toLocaleString().split(",").join(".")} VND
+          {total.toLocaleString().split(",").join(".")} VND
         </p>
       </div>
       <CouponSelect />

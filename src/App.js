@@ -8,6 +8,9 @@ import CheckoutPage from "./pages/Checkout";
 import LoginPage from "./pages/Login";
 import RegisterPage from "./pages/Register";
 import Layout from "./components/Layout/Layout";
+import { action as actionSignup } from "./components/signup signin/SignupForm";
+import { action as actionSignin } from "./components/signup signin/SigninForm";
+import ErrorPage from "./pages/Error";
 
 function App() {
   const router = createBrowserRouter([
@@ -16,6 +19,7 @@ function App() {
       element: <Layout />,
       loader: productLoader,
       id: "home",
+      errorElement: <ErrorPage />,
       children: [
         {
           index: true,
@@ -40,10 +44,12 @@ function App() {
         {
           path: "login",
           element: <LoginPage />,
+          action: actionSignin,
         },
         {
           path: "register",
           element: <RegisterPage />,
+          action: actionSignup,
         },
       ],
     },
