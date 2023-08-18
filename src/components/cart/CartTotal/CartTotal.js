@@ -2,6 +2,8 @@ import styles from "./CartTotal.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGift } from "@fortawesome/free-solid-svg-icons";
 
+// in cart page, has total mount of all products in cart, a field to add coupon
+
 const CouponSelect = () => {
   return (
     <div className={styles.coupon}>

@@ -7,6 +7,8 @@ import PageHeader from "../../components/Layout/PageHeader/PageHeader";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
+// cart page, has the products user has added to the cart, total amount, buttons to navigate to shop page and checkout page
+
 const NavigateButtons = () => {
   const navigate = useNavigate();
 

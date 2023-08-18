@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import styles from "./Banner.module.css";
 
+// banner in home page
 const Banner = () => {
   const navigate = useNavigate();
 

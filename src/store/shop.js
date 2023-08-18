@@ -1,12 +1,15 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+// state of list of products in shop page
+// has current showing category, current search word, current type of sorting, current page of the list, state to show anim on product or not
+
 const initialShopState = {
   currentCategory: "all",
   searchWord: "",
   sort: "",
   currentPage: 1,
   animShowUp: true,
-  animFadeOut: false,
+  preventAnimRun: false,
 };
 
 const shopSlice = createSlice({
@@ -17,7 +20,7 @@ const shopSlice = createSlice({
       state.currentCategory = actions.payload;
       state.searchWord = "";
       state.animShowUp = true;
-      state.animFadeOut = true;
+      state.preventAnimRun = true;
     },
     changeSearchWord(state, actions) {
       state.searchWord = actions.payload;
@@ -34,10 +37,10 @@ const shopSlice = createSlice({
     },
     turnOffAnimShowUp(state) {
       state.animShowUp = false;
-      state.animFadeOut = false;
+      state.preventAnimRun = false;
     },
-    turnOnAnimFadeOut(state) {
-      state.animFadeOut = true;
+    turnOnPreventAnimRun(state) {
+      state.preventAnimRun = true;
     },
   },
 });

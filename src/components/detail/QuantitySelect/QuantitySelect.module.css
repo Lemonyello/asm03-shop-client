@@ -1,0 +1,29 @@
+.quantity-select {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid #c5c5c5;
+  width: 40%;
+  padding: 0 18px;
+}
+
+.quantity-select h6 {
+  margin: 0;
+  color: #c5c5c5;
+}
+
+.add-to-cart {
+  display: flex;
+}
+
+.add-to-cart button {
+  border: none;
+}
+
+.add-to-cart > button {
+  background-color: #333333;
+  color: white;
+  font-style: italic;
+  font-size: 13px;
+  padding: 8px 24px;
+}

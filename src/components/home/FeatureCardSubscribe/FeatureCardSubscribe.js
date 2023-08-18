@@ -1,5 +1,7 @@
 import styles from "./FeatureCardSubscribe.module.css";
 
+// in home page, cards that show special features of the shop, and a text field to subscribe to the shop
+
 const featureCards = [
   {
     title: "free shipping",

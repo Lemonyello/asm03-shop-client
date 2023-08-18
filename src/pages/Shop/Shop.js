@@ -5,9 +5,11 @@ import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { shopActions } from "../../store/shop";
 
+// shop page, has categories for user to filter products, search keyword, sort ascending or descending
 const ShopPage = () => {
   const dispatch = useDispatch();
 
+  // when redirect out of shop page, reset all shop state
   useEffect(() => {
     return () => {
       console.log("closing shop");

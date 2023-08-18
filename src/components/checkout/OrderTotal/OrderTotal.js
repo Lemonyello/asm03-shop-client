@@ -1,5 +1,6 @@
 import styles from "./OrderTotal.module.css";
 
+// in checkout page, the total amount of all the products in user cart
 const OrderTotal = ({ items }) => {
   return (
     <div className={styles["total-order"]}>

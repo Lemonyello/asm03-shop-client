@@ -1,5 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+// state of product popup in Home page
+// has current product to show in popup, state to show popup or hide it, state to show popup anim or not
+
 const initialStatePopup = {
   showPopup: false,
   showCloseAnim: false,
@@ -23,7 +26,6 @@ const popupSlice = createSlice({
   reducers: {
     showPopup(state, actions) {
       state.showPopup = true;
-      state.showBackdrop = true;
       state.productShowing = actions.payload;
     },
     hidePopup(state) {

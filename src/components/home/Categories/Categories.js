@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import styles from "./Categories.module.css";
 
+// in home page, buttons to show all product categories
 const Categories = () => {
   const navigate = useNavigate();
 

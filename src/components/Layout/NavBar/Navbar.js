@@ -10,15 +10,21 @@ import { useDispatch, useSelector } from "react-redux";
 import { authActions } from "../../../store/auth";
 import * as storage from "../../../store/local-storage";
 
+// in all pages, has buttons to navigate to home, shop, cart, login, logout
 const Navbar = () => {
   const dispatch = useDispatch();
   const { isLoggedIn } = useSelector((state) => state.auth);
   const navigate = useNavigate();
+  // get the current path in URL
   const { pathname } = useLocation();
+
   const onLogoutHandler = () => {
+    // remove this user as current user from storage
     storage.removeFromStorage(storage.CURRENT_USER);
+    // re-render NavBar to show Login button
     dispatch(authActions.logout());
   };
+
   const user = storage.getFromStorage(storage.CURRENT_USER, {});
 
   const cartClasses = pathname === "/cart" ? styles.active : "";
@@ -38,7 +44,9 @@ const Navbar = () => {
   const btnUser = (
     <button>
       <FontAwesomeIcon icon={faUser} className={styles.icon} />
-      &nbsp;{user.fullName} <FontAwesomeIcon icon={faCaretDown} />
+      &nbsp;{user.fullName}
+      &nbsp;
+      <FontAwesomeIcon icon={faCaretDown} />
     </button>
   );
 

@@ -1,5 +1,5 @@
 .categories {
-  margin-bottom: 32px;
+  margin-bottom: 64px;
 }
 
 .categories div {
@@ -20,7 +20,7 @@
   font-size: 22px;
   text-align: center;
   font-weight: bold;
-  margin-bottom: 24px;
+  margin-bottom: 36px;
 }
 
 .categories img {

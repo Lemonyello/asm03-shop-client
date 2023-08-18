@@ -1,3 +1,5 @@
+// functions and variables to work with localStorage
+
 export const USERS = "users";
 export const CURRENT_USER = "current_user";
 export const CART_LIST = "cart_list";

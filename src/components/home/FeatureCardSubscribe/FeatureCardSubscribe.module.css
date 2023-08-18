@@ -3,7 +3,7 @@
   justify-content: space-around;
   background-color: #f5f6f7;
   padding: 32px;
-  margin-bottom: 32px;
+  margin-bottom: 56px;
 }
 
 .feature-cards h5 {
@@ -20,24 +20,25 @@
 .subscribe {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 32px;
+  margin-bottom: 64px;
 }
 
 .subscribe h4 {
   text-transform: uppercase;
   font-weight: bold;
   font-size: 18px;
+  margin-bottom: 8px;
 }
 
 .subscribe button {
   border: none;
   background-color: #494949;
-  padding: 12px 24px;
+  padding: 18px 24px;
   color: white;
 }
 
 .subscribe input {
   display: inline-block;
-  height: 47px;
+  padding: 16px;
   width: 400px;
 }

@@ -1,0 +1,15 @@
+.search-field input {
+  padding: 8px 12px;
+}
+
+.search-field input,
+.search-field select {
+  border: 1px solid #cecece;
+  border-radius: 3px;
+}
+
+.search-field {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}

@@ -1,6 +1,8 @@
 import CartItem from "../CartItem/CartItem";
 import styles from "./Cart.module.css";
 
+// in cart page, list of products that user has added to cart
+
 const Cart = ({ listCart }) => {
   return (
     <div className={styles.cart}>

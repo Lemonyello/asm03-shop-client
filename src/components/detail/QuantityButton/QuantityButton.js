@@ -3,13 +3,21 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCaretLeft, faCaretRight } from "@fortawesome/free-solid-svg-icons";
 import { useRef } from "react";
 
+// in detail page, has buttons to change quantity of product before adding to cart
 const QuantityButton = ({ changeProductAmount }) => {
   const quantityRef = useRef();
 
+  // when click button
   const onChangeQuantityHandler = (amount) => {
     const currentAmount = quantityRef.current.value;
-    if (Number(currentAmount) === 1 && amount < 0) return;
+
+    // if current amount selecting is 1, and user click button decrease amount => return
+    if (Number(currentAmount) === 1 && amount < 0) return; // prevent amount to go below 1
+
+    // update the new amount to the component
     quantityRef.current.value = Number(currentAmount) + amount;
+
+    // pass the new amount to parent, for button Add to cart in parent to use
     changeProductAmount(Number(quantityRef.current.value));
   };
 

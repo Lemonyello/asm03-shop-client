@@ -3,9 +3,12 @@
   box-shadow: 0px 0px 15px 5px #8b8b8b;
   background-color: white;
   position: fixed;
-  right: 2%;
-  bottom: 20%;
+  right: 0%;
+  bottom: 15%;
   width: 40%;
+  transform: scale(80%);
+  -webkit-animation: chatZoomIn 0.3s ease-in, chatAppear 0.3s ease-in;
+  -webkit-animation-delay: 0s, 0.3s;
 }
 
 .chat-header {
@@ -116,4 +119,30 @@
   position: fixed;
   right: 0;
   bottom: 5%;
+}
+
+@keyframes chatZoomIn {
+  0% {
+    transform: rotateZ(-10deg) scale(30%);
+    opacity: 0;
+  }
+
+  100% {
+    transform: rotateZ(-10deg) scale(80%);
+    opacity: 1;
+  }
+}
+
+@keyframes chatAppear {
+  0% {
+    transform: rotateZ(-10deg) scale(80%);
+  }
+
+  60% {
+    transform: rotateZ(7deg) scale(80%);
+  }
+
+  100% {
+    transform: rotateZ(0deg) scale(80%);
+  }
 }

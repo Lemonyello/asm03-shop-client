@@ -1,7 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
 import * as storage from "./local-storage";
 
+// state of cart
+// has products in cart, actions to modify products in cart
+
 const initialCartState = {
+  // when page first loads or reloads, load the cart from local storage into cart state
   listCart: storage.getFromStorage(storage.CART_LIST, []),
 };
 

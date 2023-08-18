@@ -23,6 +23,7 @@
   font-weight: bold;
   background-color: #e3e5e6;
   padding: 12px 24px;
+  margin: 8px 0;
 }
 
 .categories button {
@@ -36,5 +37,5 @@
 }
 
 .active {
-  color: #f1f745 !important;
+  color: #f7e845 !important;
 }

@@ -1,8 +1,9 @@
 import { useParams, useRouteLoaderData } from "react-router-dom";
 import DetailProduct from "../../components/detail/DetailProduct/DetailProduct";
-import ProductList from "../../components/home/ProductList/ProductList";
+import ProductList from "../../components/home/ProductList/List/ProductList";
 import styles from "./Detail.module.css";
 
+// detail page, has detail info of product, list of products of same category
 const DetailPage = () => {
   const { productId } = useParams();
   const products = useRouteLoaderData("home");

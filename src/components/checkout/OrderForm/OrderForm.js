@@ -1,5 +1,6 @@
 import styles from "./OrderForm.module.css";
 
+// in checkout page, a form for user to fill out full name, email, phone, address for shipping
 const OrderForm = () => {
   return (
     <form className={styles.form}>

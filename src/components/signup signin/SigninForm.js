@@ -3,12 +3,18 @@ import styles from "./SignupSigninForm.module.css";
 import { useRef } from "react";
 import * as storage from "../../store/local-storage";
 
+// in sign in page
 const SigninForm = () => {
   const navigate = useNavigate();
+  // get the data that is returned after the form is submitted
   const actionData = useActionData();
   const errorText = (
-    <p className={styles["error-text"]}>User does not exist.</p>
+    <p className={styles["error-text"]}>
+      Email or password is incorrect. Please try again.
+    </p>
   );
+
+  // if email or password is wrong, clear password field
   const passwordRef = useRef();
   if (actionData?.status === 500) passwordRef.current.value = "";
 
@@ -38,6 +44,8 @@ const SigninForm = () => {
 };
 
 export default SigninForm;
+
+// this function runs when user click Sign in and the form is validated
 export async function action({ request }) {
   const formData = await request.formData();
   const data = {
@@ -45,21 +53,20 @@ export async function action({ request }) {
     password: formData.get("password"),
   };
   const users = storage.getFromStorage(storage.USERS, []);
-  // const users = JSON.parse(localStorage.getItem("users") ?? JSON.stringify([]));
+
+  // if email and password are correct
   if (
     users.some(
       (usr) => usr.email === data.email && usr.password === data.password
     )
   ) {
-    
+    // save this user as current user, for Navbar to hide btn Login and show btn Logout
     storage.saveToStorage(
       storage.CURRENT_USER,
       users.find((usr) => usr.email === data.email)
     );
-    // localStorage.setItem(
-    //   "current_user",
-    //   JSON.stringify(users.find((usr) => usr.email === data.email))
-    // );
+
+    // then redirect to Home, Home page will dispatch action login for Navbar to re-render, we can't dispatch here
     return redirect("/");
   } else return { status: 500 };
 }

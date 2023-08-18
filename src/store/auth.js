@@ -1,7 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
+import * as storage from "./local-storage";
+
+// state of user accounts
+// has list of user accounts, current user that is logged in, action to register, login, logout
 
 const initialAuthState = {
-  isLoggedIn: false,
+  // if there is no current_user in local storage, user is not logged in
+  isLoggedIn: storage.getFromStorage(storage.CURRENT_USER, null) ? true : false,
 };
 
 const authSlice = createSlice({

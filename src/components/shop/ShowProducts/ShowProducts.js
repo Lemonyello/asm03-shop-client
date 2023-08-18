@@ -1,77 +1,34 @@
-import { useRouteLoaderData } from "react-router-dom";
-import ProductList from "../../home/ProductList/ProductList";
 import styles from "./ShowProducts.module.css";
-import { useDispatch, useSelector } from "react-redux";
-import { shopActions } from "../../../store/shop";
+import { useRouteLoaderData } from "react-router-dom";
+import { useSelector } from "react-redux";
+import ProductList from "../../home/ProductList/List/ProductList";
+import SearchField from "../SearchField/SearchField";
+import Pagination from "../Pagination/Pagination";
 
-const SearchField = () => {
-  const dispatch = useDispatch();
-  const onInputChangeHandler = (event) => {
-    dispatch(shopActions.changeSearchWord(event.target.value.toLowerCase()));
-  };
-  const onSelectChangeHandler = (event) => {
-    dispatch(shopActions.changeSort(event.target.value));
-  };
-
-  return (
-    <div className={styles["search-field"]}>
-      <input
-        type="text"
-        placeholder="Enter Search Here!"
-        onChange={onInputChangeHandler}
-      />
-      <select onChange={onSelectChangeHandler}>
-        <option>Default sorting</option>
-        <option>Ascending</option>
-        <option>Descending</option>
-      </select>
-    </div>
-  );
-};
-
-const Pagination = ({ listSize }) => {
-  const { currentPage } = useSelector((state) => state.shop);
-  const dispatch = useDispatch();
-  const sumPage = Math.floor(listSize / 9) + 1;
-  const onChangePageHandler = (page) => {
-    dispatch(shopActions.changePage(page));
-  };
-
-  return (
-    <div className={styles.pagination}>
-      <div className="d-flex gap-1">
-        {currentPage !== 1 && (
-          <button onClick={onChangePageHandler.bind(null, -1)}>{"<<"}</button>
-        )}
-        <p>{currentPage}</p>
-        {currentPage !== sumPage && (
-          <button onClick={onChangePageHandler.bind(null, 1)}>{">>"}</button>
-        )}
-      </div>
-      <p>
-        Showing {`${(currentPage - 1) * 9 + 1}-${currentPage * 9}`} of{" "}
-        {listSize} results
-      </p>
-    </div>
-  );
-};
+// in shop page, has list of products, search field, pagination
 
 const ShowProducts = () => {
   const { currentCategory, searchWord, sort, currentPage } = useSelector(
     (state) => state.shop
   );
+
   const allProducts = useRouteLoaderData("home");
+
   let products = [];
+
+  // if search word is not empty, filter according to search word
   if (searchWord)
     products = allProducts.filter((prod) =>
       prod.name.toLowerCase().includes(searchWord)
     );
+  // if search word is empty, filter according to category
   else
     products =
       currentCategory === "all"
         ? allProducts
         : allProducts.filter((prod) => prod.category === currentCategory);
 
+  // reverse order of list if sort type is Descending
   if (sort === "Descending") {
     const reversedProducts = [];
     for (let i = products.length - 1; i > -1; i--)
@@ -85,6 +42,7 @@ const ShowProducts = () => {
       {products.length ? (
         <ProductList
           listType="shop"
+          // get 9 products for each page
           products={products.slice((currentPage - 1) * 9, currentPage * 9)}
         />
       ) : (

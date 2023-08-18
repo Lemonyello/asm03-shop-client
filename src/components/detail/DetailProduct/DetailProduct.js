@@ -1,9 +1,9 @@
 import styles from "./DetailProduct.module.css";
-import QuantityButton from "../QuantityButton/QuantityButton";
-import { useDispatch, useSelector } from "react-redux";
-import { cartActions } from "../../../store/cart";
-import * as storage from "../../../store/local-storage";
+import QuantitySelect from "../QuantitySelect/QuantitySelect";
 
+// in detail page, has product description, product images, button to add product to cart
+
+// product images
 const DescriptionImages = ({ prod }) => {
   return (
     <div className={styles["desc-img"]}>
@@ -15,39 +15,7 @@ const DescriptionImages = ({ prod }) => {
   );
 };
 
-const QuantitySelect = ({ prod }) => {
-  const dispatch = useDispatch();
-  // const { listCart } = useSelector((state) => state.cart);
-  // console.log(listCart);
-  let productAmount = 1;
-  const changeProductAmountHandler = (amount) => {
-    productAmount = amount;
-  };
-
-  const addToCartHandler = () => {
-    const addProd = {
-      id: prod._id.$oid,
-      name: prod.name,
-      price: Number(prod.price),
-      amount: productAmount,
-      img: prod.img1,
-    };
-
-    storage.saveCartToStorage(addProd);
-    dispatch(cartActions.addItem(addProd));
-  };
-
-  return (
-    <div className={styles["add-to-cart"]}>
-      <div className={styles["quantity-select"]}>
-        <h6>QUANTITY</h6>
-        <QuantityButton changeProductAmount={changeProductAmountHandler} />
-      </div>
-      <button onClick={addToCartHandler}>Add to cart</button>
-    </div>
-  );
-};
-
+// has detail info of product, buttons to add product to cart
 const ProductDescription = ({ prod }) => {
   return (
     <div className={styles["product-desc"]}>

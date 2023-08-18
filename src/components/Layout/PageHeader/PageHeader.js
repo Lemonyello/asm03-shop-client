@@ -1,5 +1,6 @@
 import styles from "./PageHeader.module.css";
 
+// in shop, cart, checkout page, has current page name
 const PageHeader = ({ header, path }) => {
   return (
     <div className={styles.header}>

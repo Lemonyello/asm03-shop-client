@@ -1,0 +1,77 @@
+.product-item {
+  width: 23.4%;
+  text-align: center;
+  opacity: 100%;
+}
+
+.product-item3 {
+  width: 31.5%;
+}
+
+.product-item:hover {
+  opacity: 70%;
+  animation: fadeIn 0.3s linear;
+  cursor: pointer;
+}
+
+.product-item img {
+  width: 100%;
+  margin-bottom: 18px;
+}
+
+.product-item h5 {
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 1.5rem;
+  margin-bottom: 6px;
+}
+
+.product-item p {
+  font-size: 13px;
+  color: #6c6c6d;
+}
+
+.show-up {
+  animation: zoomIn 0.5s linear;
+}
+
+.fade-out {
+  animation: fadeOut 0.3s linear;
+}
+
+.not-show-anim {
+  /* this makes current anim of the element available but cannot run */
+  animation-duration: 0s;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 100%;
+  }
+
+  100% {
+    opacity: 70%;
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 70%;
+  }
+
+  100% {
+    opacity: 100%;
+  }
+}
+
+@keyframes zoomIn {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}

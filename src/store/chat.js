@@ -1,5 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+// state of live chat in all pages
+// change state to show chat or hide chat
+
 const initialChatState = {
   showChat: false,
 };

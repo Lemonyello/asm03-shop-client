@@ -8,6 +8,8 @@ import {
 import { useDispatch, useSelector } from "react-redux";
 import { chatActions } from "../../../store/chat";
 
+// in all pages, has a button to show the chat, a chat window
+
 const ChatHeader = () => {
   return (
     <div className={styles["chat-header"]}>

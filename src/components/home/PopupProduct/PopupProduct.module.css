@@ -20,8 +20,8 @@
   padding: 32px;
 }
 
-.popup-window > button {
-  align-self: flex-end;
+.btn-close {
+  align-self: flex-start;
   border: none;
   margin-bottom: 24px;
   background-color: white;
@@ -35,11 +35,24 @@
   margin-right: 54px;
 }
 
-.popup-window p {
-  white-space: pre-line;
+.popup-window h4 {
+  font-weight: bold;
+  padding-top: 24px;
+  padding-right: 24px;
 }
 
-.popup-window div button {
+.popup-window h5 {
+  color: #a8a8a8;
+  margin-bottom: 16px;
+}
+
+.popup-window p {
+  white-space: pre-line;
+  margin-bottom: 36px;
+  line-height: 1.8rem;
+}
+
+.btn-detail {
   border: none;
   background-color: #494949;
   color: white;

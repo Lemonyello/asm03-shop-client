@@ -27,7 +27,7 @@ const Footer = () => {
         <div key={i}>
           <h4>{col.heading}</h4>
           {col.links.map((link, i) => (
-            <a href="#" key={i} className="d-block">
+            <a href="#" key={i}>
               {link}
             </a>
           ))}

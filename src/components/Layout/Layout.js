@@ -10,6 +10,7 @@ const Layout = () => {
       <Navbar />
       <Outlet />
       <LiveChat />
+      {/* add footer to a different root to add different styling from the rest */}
       {createPortal(<Footer />, document.getElementById("full-screen"))}
     </>
   );
