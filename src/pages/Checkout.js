@@ -7,6 +7,11 @@ import OrderTotal from "../components/checkout/OrderTotal/OrderTotal";
 const CheckoutPage = () => {
   const { listCart } = useSelector((state) => state.cart);
 
+  const totalBill = listCart.reduce(
+    (sum, item) => sum + item.price * item.quantity,
+    0
+  );
+
   return (
     <>
       <PageHeader header="checkout" path="home/cart" />
@@ -15,8 +20,8 @@ const CheckoutPage = () => {
         className="d-flex justify-content-between"
         style={{ marginBottom: "96px" }}
       >
-        <OrderForm />
-        <OrderTotal items={listCart} />
+        <OrderForm bill={totalBill} />
+        <OrderTotal items={listCart} bill={totalBill} />
       </div>
     </>
   );

@@ -9,6 +9,8 @@
 
 .cart-item img {
   width: 10%;
+  height: 80px;
+  object-fit: cover;
 }
 
 .cart-item h4 {

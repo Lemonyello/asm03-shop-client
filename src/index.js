@@ -8,12 +8,15 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { Provider } from "react-redux";
 import store from "./store";
+import ShopContextProvider from "./store/ShopContextProvider";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <Provider store={store}>
-    <App />
-  </Provider>
+  <ShopContextProvider>
+    <Provider store={store}>
+      <App />
+    </Provider>
+  </ShopContextProvider>
 );
 
 // If you want to start measuring performance in your app, pass a function

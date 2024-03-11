@@ -4,10 +4,12 @@ import {
   faCartFlatbed,
   faUser,
   faCaretDown,
+  faClockRotateLeft,
 } from "@fortawesome/free-solid-svg-icons";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { authActions } from "../../../store/auth";
+import { cartActions } from "../../../store/cart";
 import * as storage from "../../../store/local-storage";
 
 // in all pages, has buttons to navigate to home, shop, cart, login, logout
@@ -21,13 +23,17 @@ const Navbar = () => {
   const onLogoutHandler = () => {
     // remove this user as current user from storage
     storage.removeFromStorage(storage.CURRENT_USER);
+    storage.removeFromStorage(storage.CART_LIST);
+    dispatch(cartActions.deleteCart());
     // re-render NavBar to show Login button
     dispatch(authActions.logout());
+    navigate("/login");
   };
 
   const user = storage.getFromStorage(storage.CURRENT_USER, {});
 
   const cartClasses = pathname === "/cart" ? styles.active : "";
+  const historyClasses = pathname === "/history" ? styles.active : "";
   const loginClasses =
     pathname === "/login" || pathname === "/register" ? styles.active : "";
 
@@ -42,12 +48,24 @@ const Navbar = () => {
   );
 
   const btnUser = (
-    <button>
-      <FontAwesomeIcon icon={faUser} className={styles.icon} />
-      &nbsp;{user.fullName}
-      &nbsp;
-      <FontAwesomeIcon icon={faCaretDown} />
-    </button>
+    <>
+      <button
+        className={historyClasses}
+        onClick={navigate.bind(null, "/history")}
+      >
+        <FontAwesomeIcon
+          icon={faClockRotateLeft}
+          className={`${styles.icon} ${historyClasses}`}
+        />
+        &nbsp; History
+      </button>
+      <button>
+        <FontAwesomeIcon icon={faUser} className={styles.icon} />
+        &nbsp;{user.name}
+        &nbsp;
+        <FontAwesomeIcon icon={faCaretDown} />
+      </button>
+    </>
   );
 
   return (

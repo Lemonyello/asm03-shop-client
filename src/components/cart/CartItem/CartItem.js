@@ -12,8 +12,8 @@ const CartItem = ({ item }) => {
 
   const onRemoveProductHandler = () => {
     // when user click Remove item, remove it from storage and from state as well
-    removeProductFromStorage(item.id);
-    dispatch(cartActions.removeItem(item.id));
+    removeProductFromStorage(item._id);
+    dispatch(cartActions.removeItem(item._id));
   };
 
   return (
@@ -21,9 +21,9 @@ const CartItem = ({ item }) => {
       <img alt={item.name} src={item.img} />
       <h4>{item.name}</h4>
       <p>{item.price.toLocaleString().split(",").join(".")} VND</p>
-      <QuantityButton amount={item.amount} id={item.id} />
+      <QuantityButton quantity={item.quantity} _id={item._id} />
       <p>
-        {(item.price * item.amount).toLocaleString().split(",").join(".")} VND
+        {(item.price * item.quantity).toLocaleString().split(",").join(".")} VND
       </p>
       <button onClick={onRemoveProductHandler}>
         <FontAwesomeIcon icon={faTrashCan} className={styles.icon} />

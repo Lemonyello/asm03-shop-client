@@ -4,6 +4,7 @@ import shopReducer from "./shop";
 import authReducer from "./auth";
 import cartReducer from "./cart";
 import chatReducer from "./chat";
+import orderTotalReducer from "./order-total";
 
 const store = configureStore({
   reducer: {
@@ -12,6 +13,7 @@ const store = configureStore({
     auth: authReducer,
     cart: cartReducer,
     chat: chatReducer,
+    orderTotal: orderTotalReducer,
   },
 });
 

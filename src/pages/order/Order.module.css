@@ -1,0 +1,17 @@
+.page h1 {
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 30px;
+  margin: 32px 0 16px;
+}
+
+.page > p {
+  font-size: 14px;
+  color: #939393;
+  margin: 0;
+  text-transform: capitalize;
+}
+
+.page > p:last-of-type {
+  margin-bottom: 80px;
+}

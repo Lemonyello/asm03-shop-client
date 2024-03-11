@@ -1,0 +1,54 @@
+.list {
+  margin-bottom: 64px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 16px 0;
+  background-color: #f3f2f2;
+}
+
+.header h5 {
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 14px;
+  margin: 0;
+  text-align: center;
+}
+
+.id-order {
+  width: 20%;
+}
+
+.id-user {
+  width: 20%;
+}
+
+.name {
+  width: 15%;
+}
+
+.phone {
+  width: 7%;
+}
+
+.address {
+  width: 8%;
+}
+
+.total {
+  width: 6%;
+}
+
+.delivery {
+  width: 8%;
+}
+
+.pay {
+  width: 8%;
+}
+
+.detail {
+  width: 8%;
+}

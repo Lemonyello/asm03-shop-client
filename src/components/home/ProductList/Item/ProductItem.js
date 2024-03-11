@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import { shopActions } from "../../../.././store/shop";
 
+
 // in home page, shop page, detail page, item of list of the products of the shop
 const ProductItem = ({ product, listType }) => {
   const { animShowUp, preventAnimRun } = useSelector((state) => state.shop);
@@ -27,7 +28,7 @@ const ProductItem = ({ product, listType }) => {
   }, [animShowUp, dispatch]);
 
   const onClickItemHandler = () => {
-    if (listType === "shop") navigate(`/detail/${product._id.$oid}`);
+    if (listType === "shop") navigate(`/detail/${product._id}`);
     else dispatch(popupActions.showPopup(product));
   };
 
@@ -39,7 +40,7 @@ const ProductItem = ({ product, listType }) => {
 
   return (
     <div className={classesItem} onClick={onClickItemHandler}>
-      <img src={product.img1} alt={product.name} />
+      <img src={ product.img1} alt={product.name} />
       <h5>{product.name}</h5>
       <p>{Number(product.price).toLocaleString().split(",").join(".")} VND</p>
     </div>

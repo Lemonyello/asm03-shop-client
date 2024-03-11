@@ -10,6 +10,7 @@ import { useEffect } from "react";
 import { authActions } from "../../store/auth";
 import * as storage from "../../store/local-storage";
 import { createPortal } from "react-dom";
+import { get_products } from "../../store/url";
 
 // home page, has banner, product categories, list of 8 products, pop up to show short desc about a product
 const HomePage = () => {
@@ -50,14 +51,10 @@ export default HomePage;
 
 // load product list when website reloads, it will run no matter what page the user is currently at
 export async function loader() {
-  const res = await fetch(
-    "https://firebasestorage.googleapis.com/v0/b/funix-subtitle.appspot.com/o/Boutique_products.json?alt=media&token=dc67a5ea-e3e0-479e-9eaf-5e01bcd09c74"
-  );
+  try {
+    const res = await fetch(get_products);
 
-  if (!res.ok)
-    throw json({ message: "Could not fetch products." }, { status: 500 });
-  else {
     const data = await res.json();
     return data;
-  }
+  } catch (error) {}
 }

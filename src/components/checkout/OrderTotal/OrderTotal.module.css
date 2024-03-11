@@ -44,3 +44,8 @@
 .total p {
   font-size: 20px;
 }
+
+.fail h5,
+.fail p {
+  color: rgb(221, 73, 73);
+}

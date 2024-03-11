@@ -5,6 +5,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialChatState = {
   showChat: false,
+  chats: [],
 };
 
 const chatSlice = createSlice({
@@ -13,6 +14,12 @@ const chatSlice = createSlice({
   reducers: {
     toggleChat(state) {
       state.showChat = !state.showChat;
+    },
+    chat(state, action) {
+      state.chats.push(action.payload);
+    },
+    deleteChat(state, action) {
+      state.chats = [];
     },
   },
 });

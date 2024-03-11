@@ -7,6 +7,15 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { useDispatch, useSelector } from "react-redux";
 import { chatActions } from "../../../store/chat";
+import ShopContext from "../../../store/shop-context";
+import { useRef, useContext } from "react";
+import {
+  getFromStorage,
+  CHAT_ROOM,
+  saveToStorage,
+  removeFromStorage,
+} from "../../../store/local-storage";
+import { get_chat_id } from "../../../store/url";
 
 // in all pages, has a button to show the chat, a chat window
 
@@ -20,32 +29,89 @@ const ChatHeader = () => {
 };
 
 const Conversation = () => {
+  const { chats } = useSelector((state) => state.chat);
+
   return (
     <div className={styles.conversation}>
-      <p className={styles["customer-chat"]}>Xin chào</p>
-
-      <p className={styles["customer-chat"]}>Làm thế nào để xem các sản phẩm</p>
-      <div className={styles["admin-chat"]}>
-        <img alt="business man" src="./resource/business profile pic.PNG" />
-        <p>ADMIN: Chào bạn</p>
-      </div>
-      <div className={styles["admin-chat"]}>
-        <img alt="business man" src="./resource/business profile pic.PNG" />
-        <p>ADMIN: Bạn có thể vào mục Shop để xem các sản phẩm</p>
-      </div>
+      {chats.map((chat, i) =>
+        chat.username === "server" ? (
+          <div className={styles["admin-chat"]} key={i}>
+            <img alt="business man" src="./resource/business profile pic.PNG" />
+            <p>ADMIN: {chat.msg}</p>
+          </div>
+        ) : (
+          <p className={styles["customer-chat"]} key={i}>
+            {chat.msg}
+          </p>
+        )
+      )}
     </div>
   );
 };
 
 const ChatField = () => {
+  const chatRef = useRef();
+  const { socket } = useContext(ShopContext);
+  const dispatch = useDispatch();
+
   return (
     <div className={styles["chat-field"]}>
       <img alt="business man" src="./resource/business profile pic.PNG" />
-      <input type="text" placeholder="Enter Message!" />
+      <input type="text" placeholder="Enter Message!" ref={chatRef} />
       <div>
         <FontAwesomeIcon icon={faPaperclip} className={styles.icon} />
+
         <FontAwesomeIcon icon={faFaceSmile} className={styles.icon} />
-        <FontAwesomeIcon icon={faPaperPlane} style={{ color: "#48b0f7" }} />
+
+        <button
+          onClick={() => {
+            const chatRoom = getFromStorage(CHAT_ROOM, null);
+
+            if (chatRef.current.value.trim() === "/end") {
+              chatRef.current.value = "";
+
+              if (!chatRoom) return;
+
+              socket.emit("leave_chat", { room: chatRoom });
+
+              dispatch(chatActions.deleteChat());
+
+              removeFromStorage(CHAT_ROOM);
+
+              return;
+            }
+
+            if (!chatRoom) {
+              const input = chatRef.current.value;
+              (async (inp) => {
+                try {
+                  const res = await fetch(get_chat_id);
+
+                  const { room } = await res.json();
+
+                  saveToStorage(CHAT_ROOM, room);
+
+                  socket.emit("user_join_room", {
+                    username: "abc",
+                    room,
+                    msg: inp,
+                  });
+
+                  dispatch(chatActions.chat({ username: "abc", msg: inp }));
+                } catch (error) {}
+              })(input);
+            } else
+              socket.emit("send_message", {
+                username: "abc",
+                msg: chatRef.current.value,
+                room: chatRoom,
+              });
+
+            chatRef.current.value = "";
+          }}
+        >
+          <FontAwesomeIcon icon={faPaperPlane} style={{ color: "#48b0f7" }} />
+        </button>
       </div>
     </div>
   );

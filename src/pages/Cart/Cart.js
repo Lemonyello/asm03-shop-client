@@ -4,8 +4,10 @@ import CartTotal from "../../components/cart/CartTotal/CartTotal";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLeftLong, faRightLong } from "@fortawesome/free-solid-svg-icons";
 import PageHeader from "../../components/Layout/PageHeader/PageHeader";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
+import { orderTotalActions } from "../../store/order-total";
 
 // cart page, has the products user has added to the cart, total amount, buttons to navigate to shop page and checkout page
 
@@ -31,6 +33,11 @@ const NavigateButtons = () => {
 
 const CartPage = () => {
   const { listCart } = useSelector((state) => state.cart);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(orderTotalActions.setFailItems([]));
+  }, []);
 
   return (
     <>
@@ -40,7 +47,7 @@ const CartPage = () => {
         <Cart listCart={listCart} />
         <CartTotal
           total={listCart.reduce(
-            (total, item) => total + item.price * item.amount,
+            (total, item) => total + item.price * item.quantity,
             0
           )}
         />

@@ -1,7 +1,6 @@
 .form {
   width: 67%;
   display: block;
-  
 }
 
 .form input {
@@ -10,6 +9,10 @@
   margin-bottom: 24px;
   border: 1px solid #bebebe;
   padding: 12px;
+}
+
+.form input:focus {
+  outline: none;
 }
 
 .form label {
@@ -26,4 +29,10 @@
   padding: 8px 24px;
   border: none;
   font-style: italic;
+}
+
+.result-text {
+  font-weight: bold;
+  color: green;
+  margin-left: 32px;
 }

@@ -14,7 +14,7 @@ const PopupProduct = ({ product }) => {
   // before redirect to Detail page, hide popup to prevent popup still shows when returning back to home page
   const onClickDetailHandler = () => {
     dispatch(popupActions.hidePopup());
-    navigate(`/detail/${product._id.$oid}`);
+    navigate(`/detail/${product._id}`);
   };
 
   // instead of hiding the popup right away, add fade out anim, and wait for anim to finish run then hide popup

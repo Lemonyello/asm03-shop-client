@@ -1,0 +1,61 @@
+.item {
+  display: flex;
+  padding: 32px 0;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+}
+
+.item img {
+  width: 100%;
+}
+
+.item p {
+  font-size: 14px;
+  color: #939393;
+  margin: 0;
+}
+
+.id-order {
+  width: 20%;
+}
+
+.id-user {
+  width: 20%;
+}
+
+.name {
+  width: 15%;
+}
+
+.phone {
+  width: 7%;
+}
+
+.address {
+  width: 8%;
+}
+
+.total {
+  width: 6%;
+}
+
+.delivery {
+  width: 8%;
+}
+
+.pay {
+  width: 8%;
+}
+
+.detail {
+  width: 8%;
+}
+
+.detail button {
+  border: 1px solid black;
+  padding: 8px 12px;
+  background-color: white;
+  font-style: italic;
+  font-size: 14px;
+}

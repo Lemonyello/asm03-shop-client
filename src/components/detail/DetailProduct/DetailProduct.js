@@ -1,5 +1,6 @@
 import styles from "./DetailProduct.module.css";
 import QuantitySelect from "../QuantitySelect/QuantitySelect";
+import { useRef } from "react";
 
 // in detail page, has product description, product images, button to add product to cart
 
@@ -17,6 +18,8 @@ const DescriptionImages = ({ prod }) => {
 
 // has detail info of product, buttons to add product to cart
 const ProductDescription = ({ prod }) => {
+  const stockRef = useRef();
+
   return (
     <div className={styles["product-desc"]}>
       <h2>{prod.name}</h2>
@@ -25,7 +28,13 @@ const ProductDescription = ({ prod }) => {
       <h4>
         CATEGORY:<span> {prod.category}</span>
       </h4>
-      <QuantitySelect prod={prod} />
+      <h5>
+        In stock: <input disabled value={prod.quantity} ref={stockRef} />
+      </h5>
+      <QuantitySelect
+        onAddToCart={(quantity) => (stockRef.current.value = quantity)}
+        prod={prod}
+      />
     </div>
   );
 };

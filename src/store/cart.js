@@ -15,22 +15,25 @@ const cartSlice = createSlice({
   reducers: {
     addItem(state, actions) {
       const product = state.listCart.find(
-        (prod) => prod.id === actions.payload.id
+        (prod) => prod._id === actions.payload._id
       );
       product
-        ? (product.amount += actions.payload.amount)
+        ? (product.quantity += actions.payload.quantity)
         : state.listCart.push(actions.payload);
     },
     updateItem(state, actions) {
       const product = state.listCart.find(
-        (prod) => prod.id === actions.payload.id
+        (prod) => prod._id === actions.payload._id
       );
-      product.amount += actions.payload.amount;
+      product.quantity += actions.payload.quantity;
     },
     removeItem(state, actions) {
       state.listCart = state.listCart.filter(
-        (prod) => prod.id !== actions.payload
+        (prod) => prod._id !== actions.payload
       );
+    },
+    deleteCart(state) {
+      state.listCart = initialCartState.listCart;
     },
   },
 });

@@ -1,0 +1,38 @@
+.list {
+  margin-bottom: 48px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 16px 24px;
+  background-color: #f3f2f2;
+}
+
+.header h5 {
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 14px;
+  margin: 0;
+  text-align: center;
+}
+
+.id {
+  width: 20%;
+}
+
+.image {
+  width: 20%;
+}
+
+.price {
+  width: 10%;
+}
+
+.name {
+  width: 20%;
+}
+
+.count {
+  width: 8%;
+}
